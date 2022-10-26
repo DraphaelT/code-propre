@@ -11,41 +11,25 @@ public class CompteBancaire {
 	/** decouvert : un découvert est autorisé seulement pour les comptes courants */
 	private double decouvert;
 	
-	/** tauxRemuneration : taux de rémunération dans le cas d'un livret A */
-	private double tauxRemuneration;
 	
 	/** Le type vaut soit CC=Compte courant, ou soit LA=Livret A */
 	private String type;
 	
 	/**
-	 * @param solde
-	 * @param decouvert
-	 * @param type
+	 * Ce constructeur est utilisé pour créer un compte bancaire
+	 * @param solde représente le solde du compte
+	 * @param decouvert représente le découvert autorisé
+	 * @param type CC=Compte courant, ou soit LA=Livret A
 	 */
 	public CompteBancaire(String type, double solde, double decouvert) {
 		super();
 		this.type = type;
 		this.solde = solde;
 		this.decouvert = decouvert;
-	}
-	
-	
-	/** Ce constructeur est utilisé pour créer un compte de type Livret A
-	 * @param type = LA
-	 * @param solde représente le solde du compte
-	 * @param decouvert  représente le découvert autorisé
-	 * @param tauxRemuneration  représente le taux de rémunération du livret A
-	 */
-	public CompteBancaire(String type, double solde, double decouvert, double tauxRemuneration) {
-		super();
-		this.type = type;
-		this.solde = solde;
-		this.decouvert = decouvert;
-		this.tauxRemuneration = tauxRemuneration;
-	}
+	}	
 	
 	/** Ajoute un montant au solde
-	 * @param montant
+	 * @param montant représente le montant d'argent ajouter au compte 
 	 */
 	public void ajouterMontant(double montant){
 		this.solde += montant;
@@ -67,11 +51,6 @@ public class CompteBancaire {
 		}
 	}
 	
-	public void appliquerRemuAnnuelle(){
-		if (type.equals("LA")){
-			this.solde = solde + solde*tauxRemuneration/100;
-		}
-	}
 	
 	/** Getter for solde
 	 * @return the solde
@@ -98,18 +77,7 @@ public class CompteBancaire {
 	public void setDecouvert(double decouvert) {
 		this.decouvert = decouvert;
 	}
-	/** Getter for tauxRemuneration
-	 * @return the tauxRemuneration
-	 */
-	public double getTauxRemuneration() {
-		return tauxRemuneration;
-	}
-	/** Setter
-	 * @param tauxRemuneration the tauxRemuneration to set
-	 */
-	public void setTauxRemuneration(double tauxRemuneration) {
-		this.tauxRemuneration = tauxRemuneration;
-	}
+	
 	/** Getter for type
 	 * @return the type
 	 */
