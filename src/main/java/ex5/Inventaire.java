@@ -15,22 +15,23 @@ public class Inventaire {
 	}
 
 	public void addItem(Item item) {
-
-		//TODO Faites évoluer ce code (idée: c'est le caisse qui doit "savoir" si elle peut accepter un objet ou non)
-		if (item.getPoids() < 5) {
-			caisses.get(0).getItems().add(item);
+		//TODO Faites évoluer ce code (idée: c'est la caisse qui doit "savoir" si elle peut accepter un objet ou non)
+		
+		//caisses.get(1).getItems().add(item);
+		for(Caisse c : caisses) {
+			c.verifCaisse(item.getPoids());
 		}
-		if (item.getPoids() >= 5 && item.getPoids() <= 20) {
-			caisses.get(1).getItems().add(item);
-		}
-		if (item.getPoids() >= 20) {
-			caisses.get(2).getItems().add(item);
-		}
+		
 	}
 
 	public int taille() {
-		
+		int taille = 0;
 		//TODO faites évoluer ce code.
-		return caisses.get(0).getItems().size() + caisses.get(1).getItems().size() + caisses.get(2).getItems().size();
+		for(Caisse c : caisses ) {
+			taille+= c.getItems().size();
+		}
+		return taille;
 	}
+	
+	
 }

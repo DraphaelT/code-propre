@@ -3,10 +3,12 @@ package ex5;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Caisse {
 
+public abstract class Caisse {
+	
 	private String nom;
 	private List<Item> items;
+	
 
 	/** Constructeur
 	 * @param nom
@@ -17,6 +19,20 @@ public class Caisse {
 		this.items = new ArrayList<>();
 	}
 
+	public int verifCaisse(int item) {
+		if (item < 5) {
+			return 0;
+		}
+		if (item >= 5 && item <= 20) {
+			//caisses.get(1).getItems().add(item);
+			return 1;
+		}
+		else
+		    //caisses.get(2).getItems().add(item);
+			return 2;
+		
+	}
+	
 	/** Getter pour l'attribut nom
 	 * @return the nom
 	 */
@@ -34,9 +50,7 @@ public class Caisse {
 	/** Getter pour l'attribut items
 	 * @return the items
 	 */
-	public List<Item> getItems() {
-		return items;
-	}
+	public abstract List<Item> getItems(); 
 
 	/** Setter pour l'attribut items
 	 * @param items the items to set
@@ -44,5 +58,4 @@ public class Caisse {
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
-	
 }

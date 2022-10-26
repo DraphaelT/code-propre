@@ -1,6 +1,6 @@
 package ex5;
 
-public class Item {
+public abstract class Item {
 
 	private String nom;
 	private int poids;
